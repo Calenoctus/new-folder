@@ -1,0 +1,97 @@
+{
+  "version": 1,
+  "author": "Meldin Mwangi",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "wokwi-breadboard-half",
+      "id": "bb1",
+      "top": 246.2,
+      "left": 599.4,
+      "rotate": 180,
+      "attrs": {}
+    },
+    { "type": "wokwi-arduino-uno", "id": "uno", "top": -28.2, "left": -115.8, "attrs": {} },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": 341.6,
+      "left": 744.4,
+      "attrs": { "color": "red" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led2",
+      "top": 341.6,
+      "left": 696.4,
+      "attrs": { "color": "green" }
+    },
+    {
+      "type": "wokwi-photoresistor-sensor",
+      "id": "ldr1",
+      "top": 281.4,
+      "left": 190,
+      "rotate": 180,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-hx711",
+      "id": "cell1",
+      "top": -295,
+      "left": 521,
+      "attrs": { "type": "50kg" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 398.4,
+      "left": 738.65,
+      "rotate": 90,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r2",
+      "top": 292.4,
+      "left": 682.45,
+      "rotate": 90,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r3",
+      "top": 398.4,
+      "left": 690.65,
+      "rotate": 90,
+      "attrs": { "value": "220" }
+    }
+  ],
+  "connections": [
+    [ "uno:GND.1", "bb1:bn.25", "black", [ "v0" ] ],
+    [ "ldr1:VCC", "bb1:tp.25", "black", [ "h0" ] ],
+    [ "uno:GND.2", "bb1:bp.25", "black", [ "v0" ] ],
+    [ "bb1:tp.13", "bb1:16t.a", "black", [ "v0" ] ],
+    [ "led2:A", "bb1:20t.c", "", [ "$bb" ] ],
+    [ "led2:C", "bb1:21t.c", "", [ "$bb" ] ],
+    [ "led1:A", "bb1:15t.c", "", [ "$bb" ] ],
+    [ "led1:C", "bb1:16t.c", "", [ "$bb" ] ],
+    [ "r2:1", "bb1:bp.17", "", [ "$bb" ] ],
+    [ "r2:2", "bb1:21b.g", "", [ "$bb" ] ],
+    [ "uno:8", "led1:C", "green", [ "v0" ] ],
+    [ "ldr1:VCC", "uno:5V", "red", [ "h0" ] ],
+    [ "ldr1:GND", "uno:GND.2", "black", [ "h0" ] ],
+    [ "ldr1:AO", "uno:A0", "gray", [ "h0" ] ],
+    [ "cell1:GND", "uno:GND.1", "red", [ "h0" ] ],
+    [ "cell1:DT", "uno:2", "green", [ "h0" ] ],
+    [ "cell1:SCK", "uno:3", "purple", [ "h0" ] ],
+    [ "uno:8", "r1:1", "cyan", [ "v0" ] ],
+    [ "uno:9", "r3:1", "green", [ "v0" ] ],
+    [ "r3:1", "bb1:20t.d", "", [ "$bb" ] ],
+    [ "r3:2", "bb1:tn.16", "", [ "$bb" ] ],
+    [ "r1:1", "bb1:15t.d", "", [ "$bb" ] ],
+    [ "r1:2", "bb1:tn.12", "", [ "$bb" ] ],
+    [ "cell1:VCC", "uno:5V", "orange", [ "h0" ] ],
+    [ "uno:GND.3", "bb1:tp.16", "gold", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}
